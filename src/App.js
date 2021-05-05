@@ -3,6 +3,7 @@ import {Route, Switch} from 'react-router-dom';
 
 import DogList from './DogList';
 import DogDetails from './DogDetails';
+import NavBar from './NavBar';
 
 import whiskey from './images/whiskey.jpg';
 import tubby from './images/tubby.jpg';
@@ -57,10 +58,14 @@ class App extends Component {
     }
 
     return(
+      <div>
+        <NavBar dogs ={this.props.dogs} />
         <Switch>
           <Route exact path = '/dogs' render = {() => <DogList dogs = {this.props.dogs} />} />
           <Route exact path = '/dogs/:name' render={getDog} />
         </Switch>
+      </div>
+
     )
 
 
